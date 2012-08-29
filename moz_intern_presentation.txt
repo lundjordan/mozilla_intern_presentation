@@ -1,0 +1,69 @@
+What am I going to talk about.
+
+
+First things first, express what I did in one sentence
+
+Summary of what I did: 'In release engineering, port desktop unittests from Buildbot to Mozharness'
+
+Goal of this talk: To explain why the above is important
+
+what does this have to do with release engineering?
+
+'so before I started interviewing for this intership I did the normal thing of
+wikipediaing what the job description was for what I was applying for':
+
+Release Engineering:
+'concerned with the compilation, assembly, and delivery of source code into
+finished products or other software components'
+
+'So really no surprises there, I was confident going in. Then I started looking
+up actual Mozillian Releng personal blogs... It turns out that in Mozilla, the
+above definition simplifies the process and fails to encapsulate Mozilla
+Releng.
+
+Continuous Integration (Mozilla Release Engineering)
+'The maintainance of multiple source repositories which recieve daily commits
+and, through automated builds and testing, provide accessible results. All the
+while, deployment to multiple platforms, versions and locales should be automated and
+the total time this entire process takes on each iteration should be shorten'
+
+what do you mean desktop unittests?
+Working with QA and Automation we take unittest suites like: mochitests,
+reftests, xpcshell, etc and tell over a thousand machines when and how to run
+them.
+
+what is Buildbot?
+When I say when and how, this is where buildbot comes in. In laymans terms, buildbot
+is python based system that helps us schedule and run build and test jobs in
+master slave environment.
+
+what is Mozharness?
+'OK, that's all well and good, now what is Mozharness and why is it in your
+title? 
+
+Currently masters in buildbot handle all the things above and specifically for unittests, it
+tells the slaves what files need to be downloaded, extracted, and installed,
+what are the dependancies needed, what options for the running suites should be
+called, and then what was the result of the test suites
+
+This can get pretty complicated when all the logic is nested in buildbots
+walls. By walls, I mean dozens of files and thousands of lines of code that
+have to handle not only unittests specifics but lots of other stuff that shares
+the same logic.
+
+By extracting all of this out, we get an in hindsight fresh start,
+isolated environment (one script to do one job), mozharness bells and whistles,
+and more flexible options. The flexability I will explain further as I go, but 
+this could be the most beneficial part for developers
+
+So lets first dive into Mozharness a bit and set the scene for what I did.
+
+Earlier I quoted that mozharness was a configuration driven script harness with
+sane logging support.
+
+Basically this is very broad but that turns out to be a good thing. As I talk
+about Mozharness, my hope is that some of you might discover a way to use
+Mozharness in your own projects.
+
+So here is the nitty gritty: You create a script in mozharness that has you define a json or python dict to be your
+configs. These configs will 'drive'
