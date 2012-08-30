@@ -1,0 +1,29 @@
+config file:
+
+    config = {
+        path_to_binary = 'application/firefox-bin'
+        "all_reftest_suites": {
+            "reftest": ["tests/reftest/tests/layout/reftests/reftest.list"],
+            "crashtest": ["tests/reftest/tests/testing/crashtest/crashtests.list"],
+            "jsreftest": ["--extra-profile-file=tests/jsreftest/tests/user.js", "tests/jsreftests/jstests.list"],
+        },
+
+script file:
+
+    class DesktopUnittest(BaseScript):
+        def __init__(self, require_config_file=True):
+                all_actions=[
+                    'clobber',
+                    'read-buildbot-config',
+                    'download-and-extract',
+                    'pull',
+                    'create-virtualenv',
+                    'install',
+                    'run-tests',
+                ],
+
+        def download-and-extract:
+            # do some work
+
+        def run-tests:
+            # run the tests

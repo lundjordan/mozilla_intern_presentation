@@ -1,0 +1,6 @@
+running it:
+
+     --no-download-and-extract
+     --no-clobber
+     --reftest-suite crashtest
+     --only-run-tests

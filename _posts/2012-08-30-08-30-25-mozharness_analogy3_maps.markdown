@@ -1,6 +1,7 @@
 #analogy time!
 
 <div class="center" markdown="1">
-    ![intro](images/gps.jpeg)
+    ![intro](images/map.jpeg)
 </div>
-## script
+## logging
+

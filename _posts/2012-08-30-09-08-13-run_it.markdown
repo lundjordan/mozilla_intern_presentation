@@ -1,0 +1,7 @@
+running it:
+
+     > ./scripts/desktop_unittest.py --config-file configs/linux_unittest.py 
+     --installer-url http://ftp/some/binary/firefox.tar.bz2
+     --test-url http://ftp/some/test/zip/firefox.tests.zip
+      --mochitest-suite browser-chrome
+

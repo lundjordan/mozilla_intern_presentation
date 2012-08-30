@@ -1,0 +1,5 @@
+#where do we go from here?
+
+<div class="center" markdown="1">
+    ![intro](images/signs.jpeg)
+</div>

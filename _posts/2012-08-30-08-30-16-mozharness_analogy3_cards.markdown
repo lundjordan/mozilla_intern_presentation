@@ -1,6 +1,6 @@
 #analogy time!
 
 <div class="center" markdown="1">
-    ![intro](images/gps.jpeg)
+    ![intro](images/sd_cards.jpg)
 </div>
-## script
+## configs
