@@ -4,4 +4,4 @@ logs:
     17:07:13     INFO - Downloading http://stage.mozilla.org/pub/mozilla.org//firefox-17.0a1.en-US.mac.tests.zip
     17:08:29     INFO -  REFTEST TEST-START | file:///tests/reftest/tests/content/base/crashtests/493281-2.html | 63 / 2107 (2%)
     17:07:32     INFO -    inflating: reftest/tests/layout/reftests/printing/381497-f.html
-    17:11:06     INFO -  REFTEST INFO | Successful: 2095 (3 pass, 2092 load only)
+    17:11:06     WARNING -  REFTEST INFO | Failed: 3
