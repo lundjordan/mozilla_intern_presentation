@@ -3,14 +3,19 @@ What am I going to talk about.
 
 First things first, express what I did in one sentence
 
+moving towards Mozharness...
+
+[road image]
+
 Summary of what I did: 'In release engineering, port desktop unittests from Buildbot to Mozharness'
 
-Goal of this talk: To explain why the above is important
+Goal of this talk: To explain why the above is important and explain why it is
+helpful
 
 what does this have to do with release engineering?
 
-'so before I started interviewing for this intership I did the normal thing of
-wikipediaing what the job description was for what I was applying for':
+'so before I started interviewing for this intership I did the normal
+preperation of wikipediaing what the job description entailed.
 
 Release Engineering:
 'concerned with the compilation, assembly, and delivery of source code into
@@ -22,48 +27,93 @@ above definition simplifies the process and fails to encapsulate Mozilla
 Releng.
 
 Continuous Integration (Mozilla Release Engineering)
-'The maintainance of multiple source repositories which recieve daily commits
-and, through automated builds and testing, provide accessible results. All the
-while, deployment to multiple platforms, versions and locales should be automated and
-the total time this entire process takes on each iteration should be shorten'
+'prepare for scalable software that spans multiple platforms, versions, and locales
+and, conscious of time durations, provide an infrastructure for maintainable source
+repositories where it runs, in parallel, automated builds, tests, evaluations, and
+ultimately, deployment'
 
-what do you mean desktop unittests?
-Working with QA and Automation we take unittest suites like: mochitests,
-reftests, xpcshell, etc and tell over a thousand machines when and how to run
-them.
+
+mthat maintains multiple source repositories
+result status's can be evaluated,
+and can scale multiple platforms, versions, and locales'
+
+
+
+with timespanning over multiple platforms, versions, and locales, provide, through
+automated builds, tests, and deployment, an infrastructure where multiple
+source repositories can be maintained and results can be accessible.
+maintained source repositeries can be committed to and ultimately 
+'maintainance of daily committed source repositories
+and, through automated builds, testing, and deployment, provide accessible results instantly. All the
+while, deployment of releases over multiple platforms, versions and locales should be
+automated while shedding time on every iteration'
 
 what is Buildbot?
-When I say when and how, this is where buildbot comes in. In laymans terms, buildbot
-is python based system that helps us schedule and run build and test jobs in
-master slave environment.
+. In laymans terms, buildbot is python based system that helps us schedule and
+run build and test jobs in master slave configuration where master machines 
+control slave machines.
 
 what is Mozharness?
-'OK, that's all well and good, now what is Mozharness and why is it in your
-title? 
 
-Currently masters in buildbot handle all the things above and specifically for unittests, it
-tells the slaves what files need to be downloaded, extracted, and installed,
-what are the dependancies needed, what options for the running suites should be
-called, and then what was the result of the test suites
+'Mozharness is a configuration-driven script harness with full logging that
+allows production infrastructure and individual developers to use the same
+scripts.'
+     - Aki Sasaki
+
+'So far, I have covered the title...'
+
+'Now I want to talk about what I did.'
+
+
+We work with QA and Automation who take care of harnessing unittest suites like: mochitests,
+reftests, and xpcshell, etc and wrap in those efforts in buildbot over a thousand machines
+describing when and how to run them.
 
 This can get pretty complicated when all the logic is nested in buildbots
-walls. By walls, I mean dozens of files and thousands of lines of code that
+walls. By walls, I mean spread over thousands and thousands of lines of code that
 have to handle not only unittests specifics but lots of other stuff that shares
-the same logic.
+the same logic. Furthermore, all this 'logic' is on the master side and has to
+tell each slave every little step what to do'.
 
-By extracting all of this out, we get an in hindsight fresh start,
-isolated environment (one script to do one job), mozharness bells and whistles,
-and more flexible options. The flexability I will explain further as I go, but 
-this could be the most beneficial part for developers
+By extracting all of this out, we get an in hindsight fresh start and can move
+a ton of the 'how' out to the slaves themselves by telling them to run one
+mozharness script.
+On top of that benefit, we also get mozharness bells and whistles, flexible options,
+and these tests are not restricted to just within buildbot. That last point could
+really be taken further and help out individual developers. Imagine not only being able to
+'rent' a slave outside of buildbot and run specific (or all) unittests but you
+could also fire up a VM or ssh into a remote machine and run only xpcshell
+cause you know its failing. All you need is python and virtualenv installed...
 
-So lets first dive into Mozharness a bit and set the scene for what I did.
 
-Earlier I quoted that mozharness was a configuration driven script harness with
-sane logging support.
+SLIDE   Before I quoted Aki as Mozharness being a script harness with configs, logging,
+and actions.
 
-Basically this is very broad but that turns out to be a good thing. As I talk
-about Mozharness, my hope is that some of you might discover a way to use
-Mozharness in your own projects.
+Basically this means its very vague and broad.
 
-So here is the nitty gritty: You create a script in mozharness that has you define a json or python dict to be your
-configs. These configs will 'drive'
+This turns out to be a good thing. 
+
+SLIDE   The way I think of mozharness is its a tool
+to get from A to B. 
+
+Think of a gps. The gps itself is the script you wrote. It has no maps
+preloaded and is a paperweight without any.
+As far as what the gps can do (waypoints, modifying terrain levels, track routes),
+these are the 'actions' you define.
+The memory cards that carry maps for differen't cities are the 'configs'
+Finally the display that renders all your waypoints and tracks your
+journey, are the logs that allow you to interperet sanely what you did.
+
+SLIDE   Why am I describing Mozharness like this?
+My hope is that some of you might discover a way to use Mozharness (like I did) in your
+own projects and add to its fast growing base.
+
+SLIDE   Mozharness Naked:
+
+[pic of actions, configs, logging]
+
+SLIDE   Mozharness with Unittests:
+
+[pic of my stuff with similar views]
+
+
