@@ -1,4 +1,4 @@
 #goal of this talk?
 
-##<em>'To explain why the that's important'</em>
+##<em>'To explain why that's important'</em>
 

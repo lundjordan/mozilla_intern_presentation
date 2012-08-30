@@ -27,43 +27,26 @@ above definition simplifies the process and fails to encapsulate Mozilla
 Releng.
 
 Continuous Integration (Mozilla Release Engineering)
-'prepare for scalable software that spans multiple platforms, versions, and locales
-and, conscious of time durations, provide an infrastructure for maintainable source
-repositories where it runs, in parallel, automated builds, tests, evaluations, and
-ultimately, deployment'
+'being conscious of time durations and in preparation for scaling software that
+spans multiple platforms, versions, and locales, provide an infrastructure for
+maintainable repositories that are put through continuous, in parallel, automated
+builds, tests, evaluations, and ultimately, releases.'
 
-
-mthat maintains multiple source repositories
-result status's can be evaluated,
-and can scale multiple platforms, versions, and locales'
-
-
-
-with timespanning over multiple platforms, versions, and locales, provide, through
-automated builds, tests, and deployment, an infrastructure where multiple
-source repositories can be maintained and results can be accessible.
-maintained source repositeries can be committed to and ultimately 
-'maintainance of daily committed source repositories
-and, through automated builds, testing, and deployment, provide accessible results instantly. All the
-while, deployment of releases over multiple platforms, versions and locales should be
-automated while shedding time on every iteration'
 
 what is Buildbot?
-. In laymans terms, buildbot is python based system that helps us schedule and
-run build and test jobs in master slave configuration where master machines 
-control slave machines.
+In laymans terms, buildbot is a python based system that helps us complete our
+continuous integration by providing a master slave configuration where master machines 
+tell slave machines what to do.
 
 what is Mozharness?
-
 'Mozharness is a configuration-driven script harness with full logging that
 allows production infrastructure and individual developers to use the same
 scripts.'
      - Aki Sasaki
 
-'So far, I have covered the title...'
+'So far, I have covered the title of what I am doing...'
 
 'Now I want to talk about what I did.'
-
 
 We work with QA and Automation who take care of harnessing unittest suites like: mochitests,
 reftests, and xpcshell, etc and wrap in those efforts in buildbot over a thousand machines
